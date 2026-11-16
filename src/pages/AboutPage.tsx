@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import { SeoHead } from '../components/SeoHead';
+import { PopUpCard, RevealBlock } from '../components/MotionPrimitives';
 import {
   COMPANY,
   HOW_WE_WORK_STEPS,
@@ -39,9 +40,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14 lg:py-18 border-b border-[#DCE5EE]">
+      <section className="bg-white py-14 lg:py-18 border-b border-[#DCE5EE] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-6 space-y-4">
+          <RevealBlock className="lg:col-span-6 space-y-4">
             <h2 className="text-2xl font-bold text-[#0B2545]">
               Our Service Philosophy
             </h2>
@@ -62,8 +63,8 @@ export function AboutPage() {
               services provider, not a UAE government entity. Requirements,
               fees, and final approvals depend on the relevant authorities.
             </div>
-          </div>
-          <div className="lg:col-span-6">
+          </RevealBlock>
+          <RevealBlock className="lg:col-span-6" delay={0.1}>
             <div className="rounded-xl overflow-hidden border border-[#DCE5EE] aspect-[4/3]">
               <img
                 src={COMPANY.assets.consultationDesk}
@@ -73,19 +74,22 @@ export function AboutPage() {
                 referrerPolicy="no-referrer"
               />
             </div>
-          </div>
+          </RevealBlock>
         </div>
       </section>
 
       <section className="bg-[#F5F8FB] py-14 lg:py-18 border-b border-[#DCE5EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-[#0B2545] mb-8">
-            Who We Serve
-          </h2>
+          <RevealBlock>
+            <h2 className="text-2xl font-bold text-[#0B2545] mb-8">
+              Who We Serve
+            </h2>
+          </RevealBlock>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {WHO_WE_SERVE.map((group) => (
-              <div
+            {WHO_WE_SERVE.map((group, idx) => (
+              <PopUpCard
                 key={group.id}
+                delay={idx * 0.06}
                 className="bg-white border border-[#DCE5EE] rounded-xl p-6"
               >
                 <h3 className="text-lg font-bold text-[#0B2545] mb-2">
@@ -105,7 +109,7 @@ export function AboutPage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </PopUpCard>
             ))}
           </div>
         </div>
@@ -113,13 +117,16 @@ export function AboutPage() {
 
       <section className="bg-white py-14 lg:py-18 border-b border-[#DCE5EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-[#0B2545] mb-8">
-            How We Work &amp; Why Clients Choose Us
-          </h2>
+          <RevealBlock>
+            <h2 className="text-2xl font-bold text-[#0B2545] mb-8">
+              How We Work &amp; Why Clients Choose Us
+            </h2>
+          </RevealBlock>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            {HOW_WE_WORK_STEPS.map((step) => (
-              <div
+            {HOW_WE_WORK_STEPS.map((step, idx) => (
+              <PopUpCard
                 key={step.step}
+                delay={idx * 0.06}
                 className="border border-[#DCE5EE] rounded-xl p-6 bg-[#F5F8FB]/60"
               >
                 <span className="font-mono text-sm font-semibold text-[#008CD2] tabular-nums">
@@ -131,14 +138,15 @@ export function AboutPage() {
                 <p className="text-sm text-[#334E68] leading-relaxed">
                   {step.description}
                 </p>
-              </div>
+              </PopUpCard>
             ))}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            {WHY_WORK_WITH_US.map((item) => (
-              <div
+            {WHY_WORK_WITH_US.map((item, idx) => (
+              <PopUpCard
                 key={item.title}
+                delay={idx * 0.06}
                 className="border border-[#DCE5EE] rounded-xl p-6"
               >
                 <h3 className="text-base font-bold text-[#0B2545] mb-2">
@@ -147,28 +155,30 @@ export function AboutPage() {
                 <p className="text-sm text-[#334E68] leading-relaxed">
                   {item.description}
                 </p>
-              </div>
+              </PopUpCard>
             ))}
           </div>
 
-          <div className="bg-[#0B2545] text-white rounded-xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold mb-1">
-                Ready to Discuss Your Requirements?
-              </h3>
-              <p className="text-sm text-slate-300">
-                Contact our Abu Dhabi office on Najda Street or submit a
-                consultation request online.
-              </p>
+          <RevealBlock>
+            <div className="bg-[#0B2545] text-white rounded-xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <h3 className="text-xl font-bold mb-1">
+                  Ready to Discuss Your Requirements?
+                </h3>
+                <p className="text-sm text-slate-300">
+                  Contact our Abu Dhabi office on Najda Street or submit a
+                  consultation request online.
+                </p>
+              </div>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#008CD2] hover:bg-[#0074B3] text-white text-sm font-semibold whitespace-nowrap shrink-0 transition-colors"
+              >
+                <span>Request a Consultation</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#008CD2] hover:bg-[#0074B3] text-white text-sm font-semibold whitespace-nowrap shrink-0 transition-colors"
-            >
-              <span>Request a Consultation</span>
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-          </div>
+          </RevealBlock>
         </div>
       </section>
     </>

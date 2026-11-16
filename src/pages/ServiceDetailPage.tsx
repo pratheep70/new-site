@@ -4,6 +4,7 @@ import { AlertCircle, ArrowLeft, ArrowRight, Check, Info } from 'lucide-react';
 import { SeoHead } from '../components/SeoHead';
 import { ServiceIcon } from '../components/ServiceIcon';
 import { FaqAccordion } from '../components/FaqAccordion';
+import { PopUpCard, RevealBlock } from '../components/MotionPrimitives';
 import {
   FAQ_CATALOG,
   SERVICE_CATALOG,
@@ -139,29 +140,28 @@ export function ServiceDetailPage() {
               What Is Included
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {service.subcategories.map((sub) => (
-                <div
-                  key={sub.title}
-                  className="border border-[#DCE5EE] rounded-xl p-6 bg-[#F5F8FB]/50"
-                >
-                  <h3 className="text-lg font-bold text-[#0B2545] mb-2">
-                    {sub.title}
-                  </h3>
-                  <p className="text-sm text-[#334E68] leading-relaxed mb-4">
-                    {sub.description}
-                  </p>
-                  <ul className="space-y-2 text-sm text-[#334E68]">
-                    {sub.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <Check
-                          className="w-4 h-4 text-[#4A7C10] shrink-0 mt-0.5"
-                          aria-hidden="true"
-                        />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {service.subcategories.map((sub, idx) => (
+                <PopUpCard key={sub.title} delay={idx * 0.06} className="h-full">
+                  <div className="h-full border border-[#DCE5EE] rounded-xl p-6 bg-[#F5F8FB]/50 hover:bg-white transition-colors duration-200">
+                    <h3 className="text-lg font-bold text-[#0B2545] mb-2">
+                      {sub.title}
+                    </h3>
+                    <p className="text-sm text-[#334E68] leading-relaxed mb-4">
+                      {sub.description}
+                    </p>
+                    <ul className="space-y-2 text-sm text-[#334E68]">
+                      {sub.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <Check
+                            className="w-4 h-4 text-[#4A7C10] shrink-0 mt-0.5"
+                            aria-hidden="true"
+                          />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </PopUpCard>
               ))}
             </div>
           </div>
@@ -230,22 +230,23 @@ export function ServiceDetailPage() {
             Related Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {relatedServices.map((rel) => (
-              <Link
-                key={rel.slug}
-                to={`/services/${rel.slug}`}
-                className="border border-[#DCE5EE] rounded-xl p-5 hover:border-[#008CD2] transition-colors block"
-              >
-                <div className="flex items-center gap-2.5 mb-2">
-                  <ServiceIcon slug={rel.slug} className="w-4 h-4 text-[#008CD2]" />
-                  <h3 className="text-base font-bold text-[#0B2545]">
-                    {rel.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-[#334E68] line-clamp-2">
-                  {rel.shortDescription}
-                </p>
-              </Link>
+            {relatedServices.map((rel, idx) => (
+              <PopUpCard key={rel.slug} delay={idx * 0.06}>
+                <Link
+                  to={`/services/${rel.slug}`}
+                  className="border border-[#DCE5EE] rounded-xl p-5 hover:border-[#008CD2] transition-colors block bg-white"
+                >
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <ServiceIcon slug={rel.slug} className="w-4 h-4 text-[#008CD2]" />
+                    <h3 className="text-base font-bold text-[#0B2545]">
+                      {rel.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-[#334E68] line-clamp-2">
+                    {rel.shortDescription}
+                  </p>
+                </Link>
+              </PopUpCard>
             ))}
           </div>
         </div>

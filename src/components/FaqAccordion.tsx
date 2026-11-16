@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import type { FaqDefinition } from '../data/catalog';
+import { EASE_EDITORIAL } from './MotionPrimitives';
 
 export function FaqAccordion({ items }: { items: FaqDefinition[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -28,20 +30,26 @@ export function FaqAccordion({ items }: { items: FaqDefinition[] }) {
                 </span>
               </div>
               <ChevronDown
-                className={`w-5 h-5 text-[#52606D] shrink-0 mt-1 transition-transform duration-150 ${
+                className={`w-5 h-5 text-[#52606D] shrink-0 mt-1 transition-transform duration-200 ${
                   isOpen ? 'rotate-180 text-[#008CD2]' : ''
                 }`}
                 aria-hidden="true"
               />
             </button>
-            {isOpen && (
-              <div
-                id={panelId}
-                className="mt-3 text-sm text-[#334E68] leading-relaxed pr-8"
-              >
-                {item.answer}
-              </div>
-            )}
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  id={panelId}
+                  initial={{ opacity: 0, y: -4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -4 }}
+                  transition={{ duration: 0.2, ease: EASE_EDITORIAL }}
+                  className="mt-3 text-sm text-[#334E68] leading-relaxed pr-8"
+                >
+                  {item.answer}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         );
       })}

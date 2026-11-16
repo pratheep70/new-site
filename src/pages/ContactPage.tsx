@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ExternalLink, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import { SeoHead } from '../components/SeoHead';
 import { EnquiryForm } from '../components/EnquiryForm';
+import { RevealBlock } from '../components/MotionPrimitives';
 import { ENQUIRY_SERVICE_OPTIONS } from '../data/catalog';
 import { COMPANY } from '../utils/company';
 
@@ -51,7 +52,7 @@ export function ContactPage() {
       <section className="bg-white py-14 lg:py-18">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            <div className="lg:col-span-5 space-y-6">
+            <RevealBlock className="lg:col-span-5 space-y-6">
               <div className="border border-[#DCE5EE] rounded-xl p-6 space-y-5">
                 <h2 className="text-xl font-bold text-[#0B2545]">
                   Direct Contact Details
@@ -162,9 +163,12 @@ export function ContactPage() {
                   </div>
                 )}
               </div>
-            </div>
+            </RevealBlock>
 
-            <div className="lg:col-span-7 border border-[#DCE5EE] rounded-xl p-6 sm:p-8 bg-white">
+            <RevealBlock
+              delay={0.08}
+              className="lg:col-span-7 border border-[#DCE5EE] rounded-xl p-6 sm:p-8 bg-white"
+            >
               <h2 className="text-2xl font-bold text-[#0B2545] mb-2">
                 Request a Consultation
               </h2>
@@ -176,7 +180,7 @@ export function ContactPage() {
                 defaultServiceSlug={validService}
                 sourcePage="/contact"
               />
-            </div>
+            </RevealBlock>
           </div>
         </div>
       </section>

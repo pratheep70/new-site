@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'motion/react';
 import { ChevronDown, Mail, MapPin, Menu, MessageCircle, Phone, X } from 'lucide-react';
 import { COMPANY } from '../utils/company';
 import { SERVICE_CATALOG } from '../data/catalog';
+import { EASE_EDITORIAL } from './MotionPrimitives';
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -126,31 +128,37 @@ export function Header() {
                 />
               </button>
 
-              {servicesOpen && (
-                <div
-                  role="menu"
-                  aria-label="Services menu"
-                  className="absolute left-0 top-full mt-3 w-72 bg-white border border-[#DCE5EE] rounded-xl shadow-lg py-2 z-50"
-                >
-                  <Link
-                    role="menuitem"
-                    to="/services"
-                    className="block px-4 py-2.5 text-sm font-semibold text-[#0B2545] hover:bg-[#F5F8FB] border-b border-[#DCE5EE]"
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 6, scale: 0.97 }}
+                    transition={{ duration: 0.16, ease: EASE_EDITORIAL }}
+                    role="menu"
+                    aria-label="Services menu"
+                    className="absolute left-0 top-full mt-3 w-72 bg-white border border-[#DCE5EE] rounded-xl shadow-lg py-2 z-50 origin-top-left"
                   >
-                    All Services Overview
-                  </Link>
-                  {SERVICE_CATALOG.map((service) => (
                     <Link
-                      key={service.slug}
                       role="menuitem"
-                      to={`/services/${service.slug}`}
-                      className="block px-4 py-2 text-sm text-[#334E68] hover:bg-[#F5F8FB] hover:text-[#008CD2] transition-colors"
+                      to="/services"
+                      className="block px-4 py-2.5 text-sm font-semibold text-[#0B2545] hover:bg-[#F5F8FB] border-b border-[#DCE5EE]"
                     >
-                      {service.title}
+                      All Services Overview
                     </Link>
-                  ))}
-                </div>
-              )}
+                    {SERVICE_CATALOG.map((service) => (
+                      <Link
+                        key={service.slug}
+                        role="menuitem"
+                        to={`/services/${service.slug}`}
+                        className="block px-4 py-2 text-sm text-[#334E68] hover:bg-[#F5F8FB] hover:text-[#008CD2] transition-colors"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
             <NavLink to="/how-we-work" className={navLinkClass}>
@@ -189,12 +197,17 @@ export function Header() {
           </div>
         </div>
 
-        {mobileOpen && (
-          <nav
-            id="mobile-nav-drawer"
-            aria-label="Mobile navigation"
-            className="lg:hidden bg-white border-t border-[#DCE5EE] px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
-          >
+        <AnimatePresence>
+          {mobileOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18, ease: EASE_EDITORIAL }}
+              id="mobile-nav-drawer"
+              aria-label="Mobile navigation"
+              className="lg:hidden bg-white border-t border-[#DCE5EE] px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
+            >
             <NavLink
               to="/"
               end
@@ -272,8 +285,9 @@ export function Header() {
                 </a>
               </div>
             </div>
-          </nav>
-        )}
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </header>
     </>
   );
