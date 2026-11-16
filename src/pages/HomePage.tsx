@@ -85,100 +85,95 @@ export function HomePage() {
         ref={heroSectionRef}
         className="bg-white border-b border-[#DCE5EE] overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10 pb-12 lg:pt-14 lg:pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-            <div className="lg:col-span-6 flex flex-col justify-center">
-              <motion.p
-                initial={{ y: 6 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.35, ease: EASE_EDITORIAL }}
-                className="text-xs sm:text-sm font-medium text-[#008CD2] mb-3"
-              >
-                Najda Street, Abu Dhabi · Visa · PRO · Document Clearing
-              </motion.p>
-              <motion.h1
-                initial={{ y: 8 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.4, ease: EASE_EDITORIAL }}
-                className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#0B2545] leading-[1.14] mb-5"
-                style={{ textWrap: 'balance' }}
-              >
-                Your UAE Visa &amp; PRO Paperwork, Handled with Care.
-              </motion.h1>
-              <motion.p
-                initial={{ y: 8 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.4, delay: 0.04, ease: EASE_EDITORIAL }}
-                className="text-base sm:text-lg text-[#334E68] leading-relaxed max-w-xl mb-7"
-              >
-                From visa processing and PRO transactions to document clearing and
-                business setup, SIGN IN DOCUMENTS CLEARING helps individuals and
-                companies manage essential paperwork in Abu Dhabi.
-              </motion.p>
+        <div className="relative w-full min-h-[460px] sm:min-h-[500px] lg:min-h-[560px] flex items-center justify-center overflow-hidden bg-[#0B2545]">
+          <motion.img
+            style={{ y: heroImageY, scale: heroImageScale }}
+            src={COMPANY.assets.heroBanner}
+            alt="UAE skyline, sunrise horizon, passport, and visa card representing SIGN IN DOCUMENTS CLEARING services"
+            className="absolute inset-0 w-full h-full object-cover object-center will-change-transform"
+            referrerPolicy="no-referrer"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,24,46,0.78)_0%,rgba(6,24,46,0.52)_54%,rgba(6,24,46,0.28)_100%)]"
+          />
 
-              <motion.div
-                initial={{ y: 6 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 0.38, delay: 0.08, ease: EASE_EDITORIAL }}
-                className="flex flex-wrap items-center gap-3.5 mb-7"
-              >
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#008CD2] hover:bg-[#0074B3] active:scale-[0.99] text-white text-sm font-semibold transition-all duration-150 whitespace-nowrap shrink-0"
-                >
-                  <span>Talk to Our Team</span>
-                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-[#CBD5E1] bg-white hover:bg-[#F5F8FB] active:scale-[0.99] text-[#0B2545] text-sm font-semibold transition-all duration-150 whitespace-nowrap shrink-0"
-                >
-                  Explore Our Services
-                </Link>
-              </motion.div>
+          <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-16 text-center text-white">
+            <motion.p
+              initial={{ y: 6 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.35, ease: EASE_EDITORIAL }}
+              className="text-xs sm:text-sm font-semibold tracking-[0.12em] uppercase text-[#DDF5B5] drop-shadow-sm mb-3"
+            >
+              {COMPANY.brandName} · Najda Street, Abu Dhabi
+            </motion.p>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-[#334E68] pt-4 border-t border-[#DCE5EE]">
-                <a
-                  href={COMPANY.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-medium text-[#3E6E0B] hover:text-[#0B2545] transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4 text-[#84C325]" aria-hidden="true" />
-                  <span>Message on WhatsApp</span>
-                </a>
-                <a
-                  href={COMPANY.phoneHref}
-                  className="inline-flex items-center gap-2 font-medium hover:text-[#008CD2] transition-colors tabular-nums"
-                >
-                  <Phone className="w-4 h-4 text-[#008CD2]" aria-hidden="true" />
-                  <span>Call {COMPANY.phoneDisplay}</span>
-                </a>
-              </div>
-            </div>
+            <motion.h1
+              initial={{ y: 8 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, ease: EASE_EDITORIAL }}
+              className="text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight text-white leading-[1.15] drop-shadow-md mb-5"
+              style={{ textWrap: 'balance' }}
+            >
+              “Your Trusted Partners for All Typing and PRO Services”
+            </motion.h1>
 
-            <div className="lg:col-span-6">
-              <motion.div
-                initial={{ scale: 0.985, y: 8 }}
-                animate={{ scale: 1, y: 0 }}
-                transition={{ duration: 0.45, ease: EASE_EDITORIAL }}
-                className="relative h-full min-h-[280px] sm:min-h-[340px] lg:min-h-[420px] rounded-2xl overflow-hidden border border-[#DCE5EE] bg-gradient-to-br from-[#EDF3F8] to-[#DCE8F2]"
+            <motion.p
+              initial={{ y: 8 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.4, delay: 0.04, ease: EASE_EDITORIAL }}
+              className="text-base sm:text-lg text-white/95 leading-relaxed max-w-2xl mx-auto drop-shadow-sm mb-8"
+            >
+              From visa processing and PRO transactions to document clearing and
+              business setup, {COMPANY.legalName} manages your essential
+              paperwork across Abu Dhabi and the UAE.
+            </motion.p>
+
+            <motion.div
+              initial={{ y: 6 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.38, delay: 0.08, ease: EASE_EDITORIAL }}
+              className="flex flex-wrap items-center justify-center gap-3.5 mb-6"
+            >
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#008CD2] hover:bg-[#0074B3] active:scale-[0.99] text-white text-sm font-semibold shadow-lg shadow-black/25 transition-all duration-150 whitespace-nowrap shrink-0"
               >
-                <motion.img
-                  style={{ y: heroImageY, scale: heroImageScale }}
-                  src={COMPANY.assets.heroOffice}
-                  alt="Corporate business consultant reviewing visa and PRO documents with a client in an Abu Dhabi office"
-                  className="w-full h-full object-cover object-center will-change-transform"
-                  referrerPolicy="no-referrer"
-                  width={1280}
-                  height={720}
-                />
-              </motion.div>
+                <span>Talk to Our Team</span>
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/45 bg-[#0B2545]/70 hover:bg-[#0B2545]/90 backdrop-blur-sm active:scale-[0.99] text-white text-sm font-semibold transition-all duration-150 whitespace-nowrap shrink-0"
+              >
+                Explore Our Services
+              </Link>
+            </motion.div>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white drop-shadow-sm">
+              <a
+                href={COMPANY.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#DDF5B5] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-[#84C325]" aria-hidden="true" />
+                <span>Message on WhatsApp</span>
+              </a>
+              <a
+                href={COMPANY.phoneHref}
+                className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#7DD3FC] transition-colors tabular-nums"
+              >
+                <Phone className="w-4 h-4 text-[#38BDF8]" aria-hidden="true" />
+                <span>Call {COMPANY.phoneDisplay}</span>
+              </a>
             </div>
           </div>
+        </div>
 
-          {/* Grounded scope strip below split */}
-          <div className="mt-10 pt-8 border-t border-[#DCE5EE] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+        {/* Grounded scope strip below banner */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             {[
               {
                 title: 'Single Point of Contact',

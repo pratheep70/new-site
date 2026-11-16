@@ -20,6 +20,7 @@ export const COMPANY = {
   },
   assets: {
     logo: '/assets/aistudio/signin-company-logo_255d9419.jpeg',
+    heroBanner: '/assets/aistudio/Dubai_Horizons__Skyline__Sea__and_Travel_69afb366.png',
     heroOffice: '/assets/aistudio/a_bright_modern_corporate_office_scene_with_a_pro_80f5c227.png',
     consultationDesk: '/src/assets/images/document_consultation_desk_1794819066008.jpg',
     abuDhabiDistrict: '/src/assets/images/abudhabi_business_district_1794819066505.jpg',
