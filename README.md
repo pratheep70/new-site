@@ -55,3 +55,4 @@ See `.env.example` for all supported variables:
 4. Confirm WhatsApp Business routing on `+971 50 102 2663` (`0501022663`).
 5. Confirm exact office building pin and set `VITE_GOOGLE_MAPS_EMBED_URL` if an embedded map is desired.
 6. Have legal counsel review `/privacy-policy` and `/terms-and-conditions` and insert verified trade licence and retention details.
+# new-site
