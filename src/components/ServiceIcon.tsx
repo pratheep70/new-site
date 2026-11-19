@@ -5,6 +5,9 @@ import {
   FileCheck2,
   FileText,
   ShieldCheck,
+  Landmark,
+  Stamp,
+  CarFront,
 } from 'lucide-react';
 
 export function ServiceIcon({
@@ -27,6 +30,12 @@ export function ServiceIcon({
       return <ShieldCheck className={className} aria-hidden="true" />;
     case 'emirates-id':
       return <CreditCard className={className} aria-hidden="true" />;
+    case 'traffic-department-services':
+      return <Landmark className={className} aria-hidden="true" />;
+    case 'attestation':
+      return <Stamp className={className} aria-hidden="true" />;
+    case 'driving-license':
+      return <CarFront className={className} aria-hidden="true" />;
     default:
       return <FileCheck2 className={className} aria-hidden="true" />;
   }

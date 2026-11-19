@@ -50,7 +50,13 @@ export function HomePage() {
   useEffect(() => {
     fetchServices()
       .then((items) => {
-        if (items.length > 0) setServices(items);
+        if (items.length > 0) {
+          const returnedSlugs = new Set(items.map((item) => item.slug));
+          const missingServices = SERVICE_CATALOG.filter(
+            (item) => !returnedSlugs.has(item.slug),
+          );
+          setServices([...items, ...missingServices]);
+        }
       })
       .catch(() => undefined);
 
@@ -99,15 +105,6 @@ export function HomePage() {
           />
 
           <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 py-14 sm:py-16 text-center text-white">
-            <motion.p
-              initial={{ y: 6 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.35, ease: EASE_EDITORIAL }}
-              className="text-xs sm:text-sm font-semibold tracking-[0.12em] uppercase text-[#DDF5B5] drop-shadow-sm mb-3"
-            >
-              {COMPANY.brandName} · Najda Street, Abu Dhabi
-            </motion.p>
-
             <motion.h1
               initial={{ y: 8 }}
               animate={{ y: 0 }}
@@ -150,24 +147,6 @@ export function HomePage() {
               </Link>
             </motion.div>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white drop-shadow-sm">
-              <a
-                href={COMPANY.whatsappHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#DDF5B5] transition-colors"
-              >
-                <MessageCircle className="w-4 h-4 text-[#84C325]" aria-hidden="true" />
-                <span>Message on WhatsApp</span>
-              </a>
-              <a
-                href={COMPANY.phoneHref}
-                className="inline-flex items-center gap-2 font-semibold text-white hover:text-[#7DD3FC] transition-colors tabular-nums"
-              >
-                <Phone className="w-4 h-4 text-[#38BDF8]" aria-hidden="true" />
-                <span>Call {COMPANY.phoneDisplay}</span>
-              </a>
-            </div>
           </div>
         </div>
 

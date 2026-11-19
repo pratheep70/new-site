@@ -88,25 +88,21 @@ export function Header() {
             aria-label={`${COMPANY.brandName} — Home`}
           >
             <img
-              src={COMPANY.assets.logo}
+              src="/assets/aistudio/signin-header-logo.png"
               alt={COMPANY.brandName}
-              className="h-9 md:h-11 w-auto object-contain"
-              width={168}
-              height={44}
+              className="h-10 md:h-11 w-auto object-contain"
+              width={2048}
+              height={652}
             />
           </Link>
 
           <nav
             aria-label="Main navigation"
-            className="hidden lg:flex items-center gap-6"
+            className="hidden min-[900px]:flex items-center gap-4"
           >
             <NavLink to="/" end className={navLinkClass}>
               Home
             </NavLink>
-            <NavLink to="/about" className={navLinkClass}>
-              About
-            </NavLink>
-
             <div className="relative" ref={dropdownRef}>
               <button
                 type="button"
@@ -170,6 +166,9 @@ export function Header() {
             <NavLink to="/contact" className={navLinkClass}>
               Contact
             </NavLink>
+            <NavLink to="/about" className={navLinkClass}>
+              About
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-3 shrink-0">
@@ -186,7 +185,7 @@ export function Header() {
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-[#DCE5EE] text-[#0B2545] hover:bg-[#F5F8FB] transition-colors"
+              className="min-[900px]:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-[#DCE5EE] text-[#0B2545] hover:bg-[#F5F8FB] transition-colors"
             >
               {mobileOpen ? (
                 <X className="w-5 h-5" aria-hidden="true" />
@@ -206,7 +205,7 @@ export function Header() {
               transition={{ duration: 0.18, ease: EASE_EDITORIAL }}
               id="mobile-nav-drawer"
               aria-label="Mobile navigation"
-              className="lg:hidden bg-white border-t border-[#DCE5EE] px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
+              className="min-[900px]:hidden bg-white border-t border-[#DCE5EE] px-4 py-4 space-y-1 max-h-[calc(100vh-4rem)] overflow-y-auto"
             >
             <NavLink
               to="/"
@@ -214,12 +213,6 @@ export function Header() {
               className="block px-3 py-2.5 rounded-lg text-base font-medium text-[#0B2545] hover:bg-[#F5F8FB]"
             >
               Home
-            </NavLink>
-            <NavLink
-              to="/about"
-              className="block px-3 py-2.5 rounded-lg text-base font-medium text-[#0B2545] hover:bg-[#F5F8FB]"
-            >
-              About
             </NavLink>
             <div className="py-1">
               <NavLink
@@ -257,6 +250,12 @@ export function Header() {
               className="block px-3 py-2.5 rounded-lg text-base font-medium text-[#0B2545] hover:bg-[#F5F8FB]"
             >
               Contact
+            </NavLink>
+            <NavLink
+              to="/about"
+              className="block px-3 py-2.5 rounded-lg text-base font-medium text-[#0B2545] hover:bg-[#F5F8FB]"
+            >
+              About
             </NavLink>
 
             <div className="pt-3 mt-3 border-t border-[#DCE5EE] space-y-2.5">

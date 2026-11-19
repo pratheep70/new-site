@@ -231,6 +231,123 @@ export const SERVICE_CATALOG: ServiceDefinition[] = [
       'Emirates ID issuance, biometric scheduling, card printing, and official fees are governed by the Federal Authority for Identity, Citizenship, Customs & Port Security (ICP).',
     sortOrder: 6,
   },
+  {
+    slug: 'traffic-department-services',
+    title: 'Traffic Department Services',
+    shortDescription:
+      'Coordination and follow-up for Municipality, DED, Immigration, Labour, Police, and Civil Defence transactions.',
+    fullDescription:
+      'Sign In Documents Clearing coordinates departmental paperwork and follow-up across Abu Dhabi and UAE government departments. We help clients prepare required documents, submit applications or requests through the correct channel, and track progress through completion.',
+    subcategories: [
+      {
+        title: 'Municipality',
+        description: 'Coordination for municipal permits, approvals, and administrative transactions.',
+        items: ['Municipal applications', 'Permit follow-up', 'Departmental clearances'],
+      },
+      {
+        title: 'DED',
+        description: 'Support for economic department licensing and trade-related transactions.',
+        items: ['Trade licence transactions', 'Economic department approvals', 'Licence-related follow-up'],
+      },
+      {
+        title: 'Immigration',
+        description: 'Coordination for residency, entry, status, and identity-related transactions.',
+        items: ['Entry and residency applications', 'Status changes', 'Government follow-up'],
+      },
+      {
+        title: 'Labour',
+        description: 'Administrative support for employment and labour authority transactions.',
+        items: ['Work permits', 'Labour contracts', 'Employment transaction follow-up'],
+      },
+      {
+        title: 'Police',
+        description: 'Assistance with police-related certificates and departmental applications.',
+        items: ['Police clearances', 'Certificate applications', 'Status follow-up'],
+      },
+      {
+        title: 'Civil Defence',
+        description: 'Coordination for civil defence approvals and safety-related certificates.',
+        items: ['Civil Defence applications', 'Approval follow-up', 'Compliance document coordination'],
+      },
+    ],
+    audience: ['Companies & SMEs', 'Investors & Partners', 'Families & Dependants', 'Freelancers & Professionals'],
+    howWeHelp: [
+      'Identify the relevant department and required transaction for your case.',
+      'Prepare and review application documents before submission.',
+      'Coordinate service-centre submissions and follow-up, then keep you updated on progress.',
+    ],
+    disclaimer:
+      'Eligibility, required documents, official fees, approvals, and processing timelines are determined by the relevant UAE government department.',
+    sortOrder: 7,
+  },
+  {
+    slug: 'attestation',
+    title: 'Attestation',
+    shortDescription:
+      'Document attestation and stamping coordination for educational, personal, commercial, and legal documents.',
+    fullDescription:
+      'Sign In Documents Clearing coordinates document attestation in the correct sequence, from initial verification and certified translation through ministry and embassy or consulate stamping. We help ensure documents are prepared for the receiving authority in the UAE or abroad.',
+    subcategories: [
+      {
+        title: 'Educational Documents',
+        description: 'Attestation coordination for degrees, diplomas, transcripts, and academic records.',
+        items: ['Degree and diploma attestation', 'Transcript attestation', 'Educational certificate follow-up'],
+      },
+      {
+        title: 'Personal Documents',
+        description: 'Document stamping support for family, civil, and personal matters.',
+        items: ['Marriage certificate attestation', 'Birth certificate attestation', 'Personal document clearing'],
+      },
+      {
+        title: 'Commercial Documents',
+        description: 'Attestation support for corporate and commercial paperwork.',
+        items: ['Trade licence and company documents', 'Powers of attorney', 'Board resolutions and certificates'],
+      },
+      {
+        title: 'Ministry & Embassy',
+        description: 'Sequenced coordination with relevant ministries and embassies or consulates.',
+        items: ['MOFA attestation coordination', 'Embassy or consulate stamping', 'Certified translation coordination'],
+      },
+    ],
+    audience: ['Companies & SMEs', 'Investors & Partners', 'Families & Dependants', 'Freelancers & Professionals'],
+    howWeHelp: [
+      'Confirm the attestation sequence required by the issuing and receiving authorities.',
+      'Check document format and prepare the file for translation or stamping.',
+      'Coordinate submissions and follow-up, then arrange return after clearing.',
+    ],
+    disclaimer:
+      'Attestation requirements, fees, issuing authority rules, and processing timelines vary by document type and destination country.',
+    sortOrder: 8,
+  },
+  {
+    slug: 'driving-license',
+    title: 'Driving License',
+    shortDescription:
+      'Driving licence application, renewal, replacement, transfer, and status follow-up coordination.',
+    fullDescription:
+      'Sign In Documents Clearing assists residents and new UAE licence applicants with driving licence paperwork and authority follow-up. We help prepare required documents for new licences, renewals, replacements, eye tests, and eligible licence transfers.',
+    subcategories: [
+      {
+        title: 'New & Renewals',
+        description: 'Administrative coordination for new applications and licence renewals.',
+        items: ['New driving licence applications', 'Licence renewal preparation', 'Eye test coordination'],
+      },
+      {
+        title: 'Replacement & Transfer',
+        description: 'Support for lost or damaged licences and eligible licence transfers.',
+        items: ['Lost or damaged licence replacement', 'Foreign licence transfer documentation', 'Authority follow-up'],
+      },
+    ],
+    audience: ['Individuals', 'Families & Dependants', 'Companies & SMEs', 'Freelancers & Professionals'],
+    howWeHelp: [
+      'Review eligibility and identify the documents required for your licence case.',
+      'Prepare application details and coordinate eye test or file requirements.',
+      'Follow up with the relevant authority and provide clear status updates.',
+    ],
+    disclaimer:
+      'Driving licence eligibility, tests, approvals, fees, and processing are governed by the relevant UAE traffic authority.',
+    sortOrder: 9,
+  },
 ];
 
 export const FAQ_CATALOG: FaqDefinition[] = [

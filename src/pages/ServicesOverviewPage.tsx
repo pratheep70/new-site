@@ -13,7 +13,13 @@ export function ServicesOverviewPage() {
   useEffect(() => {
     fetchServices()
       .then((items) => {
-        if (items.length > 0) setServices(items);
+        if (items.length > 0) {
+          const returnedSlugs = new Set(items.map((item) => item.slug));
+          const missingServices = SERVICE_CATALOG.filter(
+            (item) => !returnedSlugs.has(item.slug),
+          );
+          setServices([...items, ...missingServices]);
+        }
       })
       .catch(() => undefined);
   }, []);
